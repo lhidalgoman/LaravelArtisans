@@ -1,3 +1,3 @@
 <?php 
-    echo "Hello World!";
+    echo "<h1><a href='/app/views/auth/login.php'>LOGIN</a></h1>";
 ?>

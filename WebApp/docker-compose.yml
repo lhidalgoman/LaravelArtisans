@@ -17,7 +17,7 @@ services:
   mysql:
     image: mysql:5.7
     environment:
-      MYSQL_DATABASE: webApp_db
+      MYSQL_DATABASE: Eventos
       MYSQL_USER: laravelArtisans
       MYSQL_PASSWORD: laravelArtisans
       MYSQL_ROOT_PASSWORD: laravelArtisans
