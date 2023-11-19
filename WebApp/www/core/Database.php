@@ -1,7 +1,7 @@
 <?php
 
 class Database {
-    private $host = "localhost";
+    private $host = "mysql";
     private $db_name = "Eventos";
     private $username = "root";
     private $password = "laravelArtisans";
@@ -9,11 +9,13 @@ class Database {
 
     // Conectar a la base de datos
     public function connect() {
-        $this->conn = new mysqli($this->host, $this->username, $this->password, $this->db_name);
-
-        // Verificar conexión
-        if ($this->conn->connect_error) {
-            die("Error de conexión: " . $this->conn->connect_error);
+        $this->conn = null;
+        try {
+            $dsn = "mysql:host=" . $this->host . ";dbname=" . $this->db_name;
+            $this->conn = new PDO($dsn, $this->username, $this->password);
+            $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        } catch(PDOException $e) {
+            die("Error de conexión: " . $e->getMessage());
         }
 
         return $this->conn;
@@ -21,18 +23,19 @@ class Database {
 
     // Ejecutar una consulta SQL
     public function query($sql) {
-        $result = $this->connect()->query($sql);
+        try {
+            $statement = $this->connect()->prepare($sql);
+            $statement->execute();
 
-        if (!$result) {
-            die("Error al ejecutar la consulta: " . $this->conn->error);
+            return $statement;
+        } catch(PDOException $e) {
+            die("Error al ejecutar la consulta: " . $e->getMessage());
         }
-
-        return $result;
     }
 
     // Cerrar la conexión
     public function close() {
-        $this->conn->close();
+        $this->conn = null;
     }
 }
 
