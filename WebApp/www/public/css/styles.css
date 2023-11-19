@@ -1,3 +1,25 @@
 body{
     background-color: rgb(163, 163, 163);
+    cursor: pointer;
+}
+
+/* Estilo de HOME */
+.flecha{
+    text-decoration:none;
+    color: black;
+}
+
+.calendar{
+    margin: 0 auto;
+    width: 80%;
+}
+
+.calendar td{
+    border: 1px solid black;
+    width: 5%;
+    height: 90px;
+}
+
+.calendar th{
+    text-align: center;
 }
