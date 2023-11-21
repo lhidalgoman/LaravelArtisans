@@ -15,7 +15,6 @@ class RegisterController
         try {
             // Iniciar la transacción
             $connection = $this->database->connect();
-            $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $connection->beginTransaction();
 
             // Insertar la información de la persona

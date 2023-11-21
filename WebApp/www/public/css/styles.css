@@ -9,9 +9,10 @@ body{
     color: black;
 }
 
-.calendar{
+.calendar, .day_calendar{
     margin: 0 auto;
     width: 80%;
+    font-weight: bold;
 }
 
 .calendar td{
@@ -22,4 +23,48 @@ body{
 
 .calendar th{
     text-align: center;
+}
+
+.tipo_calendario{
+    display: flex;
+    width: 40%;
+    margin: 0 auto;
+    margin-top: 1%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.btn{
+    align-items: center;
+    justify-content: center;
+}
+
+.tipo_calendario a{
+    width: 25%;
+    height: 30px;
+}
+
+.icono{
+    width: 30%;
+    margin-top: -10px;
+}
+
+.day_calendar{
+    border: 1px solid black;
+}
+
+.day_calendar .content{
+    width: 100%;
+    text-align: center;
+    height: 500px;
+    border: 1px solid black;
+}  
+
+.calendar_number{
+    vertical-align: top;
+    text-align: left;
+    width: 10%;
+    padding-top: 1%;
+    padding-left: 2%;
+    font-size: xx-large;
 }
