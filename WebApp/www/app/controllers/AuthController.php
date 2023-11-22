@@ -22,8 +22,9 @@ class AuthController {
             $user = $stmt->fetch(PDO::FETCH_ASSOC);
             if (password_verify($password, $user['Password'])) {
                 // Iniciar sesión y establecer variables de sesión
-                $_SESSION['user_id'] = $user['id'];
-                $_SESSION['username'] = $user['username'];
+                $_SESSION['user_id'] = $user['Id_usuario'];
+                $_SESSION['username'] = $user['Username'];
+                $_SESSION['persona_id'] = $user['Id_Persona'];
                 return true;
             }
         }
