@@ -68,3 +68,15 @@ body{
     padding-left: 2%;
     font-size: xx-large;
 }
+
+.event-inscrito {
+    color: green;
+}
+
+.event-ponente {
+    color: orange;
+}
+
+.event-no-inscrito {
+    color: red;
+}

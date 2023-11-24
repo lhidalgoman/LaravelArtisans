@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,7 +13,7 @@
 </head>
 
 <body class="bg-light">
-    <?php 
+    <?php
         require '../header.php'; 
         require '../../controllers/EventController.php';
     ?>
@@ -73,9 +74,13 @@
                 $dayOfWeek = ($dayOfWeek == 0 ? 7 : $dayOfWeek);
 
                 // Calendario
-                // crear objeto Event y obtener la información de los eventos 
-                $eventController = new EventController();
+                // crear objeto Event y obtener la información de los eventos
+                $eventController = new EventController($_SESSION['persona_id']);
                 $events = $eventController->getEvents($month, $year);
+
+                /*echo "<pre>";
+                echo var_dump($events);
+                echo "</pre>";*/
 
                 $currentDay = 1;
                 for ($i = 0; $i < 5; $i++) {
@@ -86,10 +91,12 @@
                             echo " ";
                         } else if ($currentDay <= $daysInMonth) {
                             echo $currentDay;
-                            // Aquí, verifica si hay eventos para este día
+                            // Verificar eventos para este día
                             foreach ($events as $event) {
                                 if ($event['Fecha'] == date("Y-m-d", strtotime("$year-$month-$currentDay"))) {
-                                    echo "<div class='event'>" . $event['Titulo'] . "</div>"; // Puedes personalizar esto
+                                    // Determinar la clase según si es ponente, está inscrito o no está inscrito
+                                    $class = $event['Es_Ponente'] ? 'event-ponente' : ($event['Esta_Inscrito'] ? 'event-inscrito' : 'event-no-inscrito');
+                                    echo "<div class='{$class}'>" . $event['Titulo'] . "</div>";
                                 }
                             }
                             $currentDay++;
