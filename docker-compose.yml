@@ -1,0 +1,61 @@
+# Especifica la versión del formato del archivo Docker Compose. '3' es la versión actual.
+version: '3'
+# Define los servicios de la aplicación.
+services:
+# Define un servicio llamado 'php'.
+  php:
+   # Construye el servicio a partir de un Dockerfile.
+    build:
+    # Utiliza el directorio actual como contexto de construcción.
+      context: .
+      # Utiliza el Dockerfile en el directorio actual para construir la imagen.
+      dockerfile: Dockerfile
+      # Monta volúmenes para el servicio.
+    volumes:
+    # Monta el directorio 'www' de la máquina host en el directorio '/var/www/html' del contenedor Docker.
+      - ./www:/var/www/html
+      # Mapea los puertos entre el host Docker y los contenedores Docker.
+    ports:
+    # Mapea el puerto 8080 de la máquina host al puerto 80 del contenedor Docker.
+      - "8080:81"
+  # Define un servicio llamado 'apache'.
+  apache:
+  # Utiliza la imagen 'httpd:2.4' para el servicio.
+    image: httpd:2.4
+    # Monta volúmenes para el servicio.
+    volumes:
+    # Monta el directorio 'www' de la máquina host en el directorio '/usr/local/apache2/htdocs' del contenedor Docker.
+      - ./www:/usr/local/apache2/htdocs
+    # Mapea los puertos entre el host Docker y los contenedores Docker.
+    ports:
+    # Mapea el puerto 8082 de la máquina host al puerto 80 del contenedor Docker.
+      - "8082:80"
+  
+  # Define un servicio llamado 'mysql'.
+  mysql:
+    # Utiliza la imagen 'mysql:5.7' para el servicio.
+    image: mysql:5.7
+    # Define variables de entorno para el servicio.
+    environment:
+    # Establece los valores de la bd.
+      MYSQL_DATABASE: Eventos
+      MYSQL_USER: laravelArtisans
+      MYSQL_PASSWORD: laravelArtisans
+      MYSQL_ROOT_PASSWORD: laravelArtisans
+    volumes:
+      - ./db:/var/lib/mysql
+    # Escucha el puerto 3307 por defecto.
+    ports:
+      - "3308:3308"
+
+  # Define un servicio llamado 'phpmyadmin'.
+  phpmyadmin:
+    # Utiliza la imagen 'phpmyadmin/phpmyadmin' para el servicio.
+    image: phpmyadmin/phpmyadmin
+    links:
+      - mysql:db
+    ports:
+    # Usa el puerto 81 de la máquina host para acceder a phpMyAdmin.
+      - "8081:80"
+    environment:
+      PMA_ARBITRARY: 1
