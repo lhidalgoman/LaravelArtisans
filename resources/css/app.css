@@ -1,0 +1,20 @@
+/* public/css/app.css */
+body.login{
+    background-image: url('../img/fondo.png'); /* Ruta de tu imagen de fondo para login */
+    background-size: cover;
+    background-position: center;
+    height: 100vh; /* O ajusta según sea necesario */
+}
+
+body.register{
+    background-image: url('../img/fondo.png'); /* Ruta de tu imagen de fondo para register */
+    background-size: cover;
+    background-position: center;
+    height: 100vh; /* O ajusta según sea necesario */
+}
+
+.card{
+    background: #FFBD00;
+}
+
+
