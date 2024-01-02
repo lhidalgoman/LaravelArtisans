@@ -1,0 +1,68 @@
+/* events-styles.css */
+
+/* Estilos para los encabezados de eventos */
+.event-title {
+    font-weight: bold;
+}
+
+/* Estilos para las imágenes de eventos */
+.event-image {
+    width: 200px; /* Ajusta el tamaño según tus necesidades */
+    height: auto; /* Mantén la proporción */
+}
+/* Estilos generales */
+.event-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Espacio entre eventos */
+}
+
+.event-item {
+    max-width: 800px; /* Ancho máximo de cada evento */
+    width: 100%;
+    border: 1px solid #ddd; /* Borde para visualización */
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Estilos para el encabezado del evento */
+.event-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px; /* Espacio entre el encabezado y la galería/descripción */
+}
+
+.event-title {
+    margin: 0;
+}
+
+.event-date {
+    font-style: italic;
+}
+
+/* Estilos para la galería de medios */
+.media-gallery {
+    display: flex;
+    gap: 20px; /* Espacio entre galería de imágenes y videos */
+}
+
+.image-gallery,
+.video-gallery {
+    flex: 1; /* La galería ocupa el espacio disponible */
+}
+
+.gallery-image {
+    max-width: 100%; /* Imágenes ajustadas al contenedor */
+    height: auto;
+}
+
+.gallery-video {
+    max-width: 100%;
+}
+
+/* Estilos para la descripción del evento */
+.event-description {
+    flex: 1; /* La descripción ocupa el espacio disponible */
+}
+

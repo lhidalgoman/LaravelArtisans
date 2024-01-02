@@ -1,0 +1,62 @@
+/*
+Theme Name: OceanWP Child Theme
+Theme URI: https://oceanwp.org/
+Description: OceanWP WordPress theme. Sample child theme.
+Author: OceanWP
+Author URI: https://oceanwp.org/
+Template: oceanwp
+Version: 1.0
+*/
+
+/* Parent stylesheet should be loaded from functions.php not using @import */
+/**
+ * Footer widgets
+ */
+ #footer-widgets {
+    background-color: #940808;
+    padding: 30px 0;
+    margin: 0;
+  }
+  #footer-widgets .footer-box {
+    padding: 0 15px;
+    margin: 0;
+  }
+  #footer-widgets .footer-box .footer-widget {
+    margin-bottom: 20px;
+  }
+  #footer-widgets .footer-box .footer-widget:last-child {
+    margin-bottom: 0;
+  }
+  #footer-widgets .footer-box .footer-widget ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  #footer-widgets .footer-box .widget-title {
+    color: #fff;
+  }
+  #footer-widgets .footer-box a {
+    color: #fff;
+  }
+  #footer-widgets .footer-box a:hover {
+    color: #13aff0;
+  }
+  #footer-widgets #wp-calendar caption,
+  #footer-widgets #wp-calendar th,
+  #footer-widgets #wp-calendar tbody,
+  #footer-widgets .contact-info-widget i,
+  #footer-widgets .contact-info-widget .owp-icon,
+  #footer-widgets .mailchimp-widget input[type=email],
+  #footer-widgets .posts-thumbnails-widget li,
+  #footer-widgets .social-widget li a {
+    border-color: #555;
+
+    #footer-widgets.oceanwp-row clr {
+        background-color: #bcb6b6;
+        padding: 30px 18px;
+        margin: 2;
+    }
+
+
+
+  }
